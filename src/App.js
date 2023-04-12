@@ -23,7 +23,8 @@ function App() {
       let buffer = Buffer.from(`BIA_${parseInt(start) + index}_BIA`).toString(
         "base64"
       );
-      let url_code = buffer.slice(0, buffer.length - 1);
+      let url_code = buffer
+      // .slice(0, buffer.length - 1);
       QRCode.toDataURL(
         `${link}/${url_code}`,
         {
@@ -37,7 +38,6 @@ function App() {
         }
       );
       trow["url_code"] = url_code;
-
       trows.push(trow);
     });
     setTrs(trows);
